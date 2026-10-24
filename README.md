@@ -16,7 +16,7 @@
 
 No repositório atual, você conseguirá visualizar parte da minha trilha de aprendizado de Java e Sintaxe,
 junto com isso, também adicionei listas de exercicios com topicos separados,
-dentro da pasta src/ existem algumas classes criadas para exploração do Java e do IntelliJ IDEA.
+dentro da pasta src/estudos/ existem algumas classes criadas para exploração do Java e do IntelliJ IDEA.
 
 ### INTUITO DO REPOSITÓRIO
 Este repositório registra o início e a evolução da minha jornada com Java: dos primeiros
@@ -26,7 +26,9 @@ A ideia é que qualquer pessoa (inclusive eu no futuro) consiga ver o caminho pe
 ### ESTRUTURA DO REPOSITÓRIO
 ```
 src/
-├── *.java                  → classes de estudo (sintaxe, operadores, strings, POO...)
+├── Conta.java              → estudo de orientação a objetos (classes e objetos)
+├── ScreenMatch.java        → estudo de variáveis e tipos
+├── estudos/                → classes de estudo (sintaxe, operadores, strings...)
 ├── exercicios/             → resoluções de listas de exercícios
 └── projetos/               → projetos independentes, cada um com seu próprio Main
     ├── terminalia/         → programa de terminal
