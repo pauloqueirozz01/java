@@ -1,3 +1,5 @@
+package estudos;
+
 public class StringsTextBlocks {
     public static void main(String[] args){
         String name = "Paulo Queiroz";

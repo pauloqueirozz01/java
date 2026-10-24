@@ -1,3 +1,5 @@
+package estudos;
+
 public class OperadorRelacional {
     public static void main(){
         String message = "<-- APRENDENDO SOBRE OPERADORES RELACIONAIS -->";

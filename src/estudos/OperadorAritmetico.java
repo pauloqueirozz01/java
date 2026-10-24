@@ -1,3 +1,5 @@
+package estudos;
+
 public class OperadorAritmetico {
     public static void main(){
 
