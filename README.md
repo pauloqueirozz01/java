@@ -65,6 +65,10 @@ java -cp out projetos.desktop.Main
 As resoluções ficam em `src/exercicios/`, organizadas por tópico.
 Passar o caminho e explicar o que esperar dentro dos exercícios do repositório
 
+| Exercício | Caminho | O que pratica |
+|---|---|---|
+| CadastroEstudante | `src/exercicios/CadastroEstudante.java` | Ler dados do aluno pelo terminal, converter texto em número, calcular a média e exibir um resumo |
+
 ### PROJETOS DESENVOLVIDOS DENTRO DO REPOSITÓRIO
 | Projeto | Tipo | Caminho | Classe principal |
 |---|---|---|---|
@@ -86,7 +90,7 @@ Todos os packages abaixo já vêm no JDK, então não é preciso instalar nenhum
 
 | Package / Classe | Onde é usado | O que faz | Por que escolhi |
 |---|---|---|---|
-| `java.util.Scanner` | `projetos/terminalia` | Lê o que o usuário digita no terminal (`nextLine()`, `nextInt()`...) | Forma mais simples de ler dados do teclado, ideal para programas de terminal e exercícios |
+| `java.util.Scanner` | `projetos/terminalia`, `estudos/Scaning`, `exercicios/CadastroEstudante` | Lê o que o usuário digita no terminal (`nextLine()`, `nextInt()`...) | Forma mais simples de ler dados do teclado, ideal para programas de terminal e exercícios |
 | `javax.swing.JFrame` | `projetos/desktop` | Cria a janela da aplicação (título, tamanho, botão de fechar) | É a base de toda aplicação Swing: tudo é colocado dentro de um `JFrame` |
 | `javax.swing.JLabel` | `projetos/desktop` | Exibe um texto (ou imagem) dentro da janela | Componente mais simples para mostrar informação na tela |
 | `javax.swing.SwingConstants` | `projetos/desktop` | Constantes de alinhamento, como `CENTER` | Deixa o código mais legível do que usar números "mágicos" |
@@ -94,6 +98,38 @@ Todos os packages abaixo já vêm no JDK, então não é preciso instalar nenhum
 
 > **Por que Swing e não JavaFX?** O Swing já vem dentro do JDK e funciona sem configurar nada, o que é ótimo para começar.
 > O JavaFX é mais moderno, mas precisa ser baixado e configurado à parte.
+
+#### Decisão: ler números como texto e converter depois (`CadastroEstudante`)
+No exercício `CadastroEstudante`, a idade e as notas não são lidas direto como número.
+Para cada uma delas uso **duas variáveis**: uma guarda o texto digitado e a outra guarda o valor já convertido.
+
+```java
+String idadeDigitada = scanner.nextLine();           // o que o usuário digitou, como texto
+int idadeEstudante = Integer.parseInt(idadeDigitada); // o mesmo valor, agora como int
+
+String notaDigitada1 = scanner.nextLine();                 // texto
+double notaEstudante1 = Double.parseDouble(notaDigitada1); // double
+```
+
+**Por que não usar `scanner.nextInt()` ou `scanner.nextDouble()` direto?**
+Quando testei com `nextDouble()`, a entrada não era capturada corretamente. Dois motivos explicam isso:
+
+1. **O "Enter" fica para trás.** `nextInt()` e `nextDouble()` leem só o número e deixam a quebra de linha
+   no buffer. O próximo `nextLine()` (como a pergunta "Deseja calcular a média? S ou N") lê essa linha
+   vazia na hora e pula a resposta do usuário. Lendo tudo com `nextLine()`, cada linha digitada é
+   consumida por inteiro e esse problema não acontece.
+2. **O separador decimal depende do idioma do sistema.** Com o computador em português, `nextDouble()`
+   espera vírgula (`7,5`) e falha com ponto (`7.5`). Já `Double.parseDouble()` sempre usa ponto,
+   então o comportamento é o mesmo em qualquer máquina.
+
+**Por que separar em `notaDigitada` / `notaEstudante` (e `idadeDigitada` / `idadeEstudante`)?**
+- Os nomes deixam claro em que etapa o dado está: `...Digitada` é o texto cru vindo do teclado,
+  `...Estudante` é o valor pronto para cálculo.
+- A conversão fica visível em uma linha própria (`Integer.parseInt` / `Double.parseDouble`), o que
+  facilita entender e depurar.
+- O texto original continua guardado, então no futuro dá para validar a entrada (por exemplo,
+  avisar o usuário se ele digitou letras no lugar de números, tratando a `NumberFormatException`)
+  antes de converter.
 
 ### AUTOR
 **Paulo André Santos Queiroz**
