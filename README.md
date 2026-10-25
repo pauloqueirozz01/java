@@ -1,7 +1,7 @@
 # APRENDIZADO EM JAVA - INICIANDO E AVANÇANDO
 
 <p align="left">
-  <img src="https://img.shields.io/badge/Java-25-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 25"/>
+  <img src="https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 17"/>
   <img src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellijidea&logoColor=white" alt="IntelliJ IDEA"/>
   <img src="https://img.shields.io/badge/Swing-Desktop-5382A1?style=for-the-badge&logo=openjdk&logoColor=white" alt="Swing"/>
   <img src="https://img.shields.io/badge/status-em_aprendizado-blueviolet?style=for-the-badge" alt="Status: em aprendizado"/>

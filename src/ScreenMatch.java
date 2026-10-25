@@ -8,5 +8,9 @@ public class ScreenMatch {
             System.out.println("Ano de Lançamento: " + anoDeLancamento);
             boolean inclusoNoPlano = true;
             double notaDoFilme = 8.79;
+            double media = (9 + 8.89 + 6.80) / 3;
+
+            notaDoFilme = (int) (media / 2);
+            System.out.printf("O filme tem %s estrelas de avaliação média.%n", notaDoFilme);
     }
 }

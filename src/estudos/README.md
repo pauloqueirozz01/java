@@ -15,6 +15,7 @@ e tem comentários explicando o que está acontecendo. Aqui ficam o índice e **
 | OperadoresIncrementadores | `OperadoresIncrementadores.java` | Pré-incremento (`++x`) x pós-incremento (`x++`) |
 | StringsTextBlocks | `StringsTextBlocks.java` | Comparação de Strings, text blocks, `String.format` e `formatted()` |
 | Scaning | `Scaning.java` | Ler dados do teclado com `Scanner` |
+| Casting | `Casting.java` | Conversão de tipos: casting implícito (widening) e explícito (narrowing) |
 | Functions | `Functions.java` | Métodos/funções *(em construção)* |
 
 ### COMO RODAR

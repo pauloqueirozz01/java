@@ -10,11 +10,11 @@ class Conta {
     String titular;
     double saldo;
     boolean ativa;
-}
 
-void main() {
-    Conta contaPaulo = new Conta();
-    contaPaulo.titular = "Paulo Queiroz";
-    contaPaulo.saldo = 250;
-    contaPaulo.ativa = true;
+    public static void main(String[] args) {
+        Conta contaPaulo = new Conta();
+        contaPaulo.titular = "Paulo Queiroz";
+        contaPaulo.saldo = 250;
+        contaPaulo.ativa = true;
+    }
 }
