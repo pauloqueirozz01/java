@@ -28,11 +28,12 @@ A ideia é que qualquer pessoa (inclusive eu no futuro) consiga ver o caminho pe
 src/
 ├── Conta.java              → estudo de orientação a objetos (classes e objetos)
 ├── ScreenMatch.java        → estudo de variáveis e tipos
-├── estudos/                → classes de estudo (sintaxe, operadores, strings...)
-├── exercicios/             → resoluções de listas de exercícios
-└── projetos/               → projetos independentes, cada um com seu próprio Main
+├── estudos/                → classes de estudo (sintaxe, operadores, strings...) + README
+├── exercicios/             → resoluções de listas de exercícios + README com as decisões
+└── projetos/               → projetos independentes, cada um com seu próprio Main + README
     ├── terminalia/         → programa de terminal
-    └── desktop/            → aplicação com janela (Swing)
+    ├── desktop/            → aplicação com janela (Swing)
+    └── gamejava/           → em construção
 ```
 
 Cada projeto dentro de `src/projetos/` é um **package** com sua própria classe `Main`,
@@ -63,7 +64,7 @@ java -cp out projetos.desktop.Main
 
 ### EXERCICIOS PARA QUEM SE INTERESSAR EM PRATICAR E SUAS RESOLUÇÕES
 As resoluções ficam em `src/exercicios/`, organizadas por tópico.
-Passar o caminho e explicar o que esperar dentro dos exercícios do repositório
+O enunciado e as decisões de cada um estão em [`src/exercicios/README.md`](src/exercicios/README.md).
 
 | Exercício | Caminho | O que pratica |
 |---|---|---|
@@ -99,37 +100,12 @@ Todos os packages abaixo já vêm no JDK, então não é preciso instalar nenhum
 > **Por que Swing e não JavaFX?** O Swing já vem dentro do JDK e funciona sem configurar nada, o que é ótimo para começar.
 > O JavaFX é mais moderno, mas precisa ser baixado e configurado à parte.
 
-#### Decisão: ler números como texto e converter depois (`CadastroEstudante`)
-No exercício `CadastroEstudante`, a idade e as notas não são lidas direto como número.
-Para cada uma delas uso **duas variáveis**: uma guarda o texto digitado e a outra guarda o valor já convertido.
+#### Decisões de cada exercício, estudo e projeto
+As decisões específicas ficam documentadas no README de cada pasta:
 
-```java
-String idadeDigitada = scanner.nextLine();           // o que o usuário digitou, como texto
-int idadeEstudante = Integer.parseInt(idadeDigitada); // o mesmo valor, agora como int
-
-String notaDigitada1 = scanner.nextLine();                 // texto
-double notaEstudante1 = Double.parseDouble(notaDigitada1); // double
-```
-
-**Por que não usar `scanner.nextInt()` ou `scanner.nextDouble()` direto?**
-Quando testei com `nextDouble()`, a entrada não era capturada corretamente. Dois motivos explicam isso:
-
-1. **O "Enter" fica para trás.** `nextInt()` e `nextDouble()` leem só o número e deixam a quebra de linha
-   no buffer. O próximo `nextLine()` (como a pergunta "Deseja calcular a média? S ou N") lê essa linha
-   vazia na hora e pula a resposta do usuário. Lendo tudo com `nextLine()`, cada linha digitada é
-   consumida por inteiro e esse problema não acontece.
-2. **O separador decimal depende do idioma do sistema.** Com o computador em português, `nextDouble()`
-   espera vírgula (`7,5`) e falha com ponto (`7.5`). Já `Double.parseDouble()` sempre usa ponto,
-   então o comportamento é o mesmo em qualquer máquina.
-
-**Por que separar em `notaDigitada` / `notaEstudante` (e `idadeDigitada` / `idadeEstudante`)?**
-- Os nomes deixam claro em que etapa o dado está: `...Digitada` é o texto cru vindo do teclado,
-  `...Estudante` é o valor pronto para cálculo.
-- A conversão fica visível em uma linha própria (`Integer.parseInt` / `Double.parseDouble`), o que
-  facilita entender e depurar.
-- O texto original continua guardado, então no futuro dá para validar a entrada (por exemplo,
-  avisar o usuário se ele digitou letras no lugar de números, tratando a `NumberFormatException`)
-  antes de converter.
+- [`src/estudos/README.md`](src/estudos/README.md) → índice dos estudos e o que aprendi em cada um
+- [`src/exercicios/README.md`](src/exercicios/README.md) → enunciado e decisões de cada exercício (ex.: por que ler números como texto no `CadastroEstudante`)
+- [`src/projetos/README.md`](src/projetos/README.md) → objetivo e decisões de cada projeto (ex.: por que Swing)
 
 ### AUTOR
 **Paulo André Santos Queiroz**
